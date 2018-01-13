@@ -1,0 +1,35 @@
+package com.test.string;
+
+public class StringCompression {
+
+	public static void main(String[] args) {
+		String str = "abbc";
+		StringBuilder sb = new StringBuilder();
+		int count = 1;
+		int i =0;
+		if(str != null){
+			for(int j=0;j<str.length()-1;j++){
+				if(str.charAt(i) == str.charAt(j+1)){
+					count++;
+				}else{
+					if(count != 1){
+						sb.append(str.charAt(j)).append(count);
+					}else{
+						sb.append(str.charAt(j));
+					}
+					i = j+1;		
+					count = 1;
+				}
+				if(j == str.length()-2){
+					if(count != 1){
+						sb.append(str.charAt(j+1)).append(count);
+					}else{
+						sb.append(str.charAt(j+1));
+					}
+				}
+			}
+			
+		}
+		System.out.println(sb.toString());
+	}
+}
