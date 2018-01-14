@@ -1,0 +1,23 @@
+package com.test.string;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Manip {
+	public static void main(String[] args) {
+		String str = "abcbd";
+				int a = 1;
+				char[] charArray = str.toCharArray();
+				Map<Character, Integer> mapOfStr = new HashMap<Character, Integer>();
+				for(Character c : charArray){
+					if(!mapOfStr.containsKey(c)){
+						mapOfStr.put(c, a);
+					}else{
+						int counterOfA = mapOfStr.get(c);
+						counterOfA++;
+						mapOfStr.put(c, counterOfA);
+					}
+				}
+				System.out.println(mapOfStr.toString());
+	}
+}
