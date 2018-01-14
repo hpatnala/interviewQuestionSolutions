@@ -1,0 +1,33 @@
+package com.test.string;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+public class UniqueWords {
+	public static void main(String[] args) {
+		String str = "Knowledge is great is great";
+		Scanner sc = new Scanner(str).useDelimiter(" ");
+		Map<String, Integer> mapId = new HashMap<String, Integer>();
+		int count = 1;
+		while(sc.hasNext()){
+			String val = (String)sc.next().trim();
+			if(!mapId.containsKey(val)){		
+				mapId.put(val, count);
+			}else{
+				int counterOfA = mapId.get(val);
+				counterOfA++;
+				mapId.put(val, counterOfA);
+			}
+		}
+		
+		for(Map.Entry<String, Integer> me : mapId.entrySet()){
+			if(me.getValue() == 1){
+				System.out.println(me.getKey());
+			}
+		}
+			
+	}
+}
